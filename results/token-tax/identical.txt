@@ -1,0 +1,12 @@
+cl100k granite-4.1
+o200k gpt-oss phi-4-mini
+qwen2.5 qwen3
+qwen3.5 qwen3.8
+deepseek-v3 deepseek-v4.1
+mistral-nemo mistral-medium-3.5 sarvam-m krutrim-2
+mistral-large-4
+gemma4
+sarvam-1
+sarvam-30b sarvam-105b
+kimi-k2 kimi-k3
+glm-5.3
