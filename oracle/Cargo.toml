@@ -1,0 +1,11 @@
+[package]
+name = "oracle"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+publish = false
+description = "Answer keys computed with the kannadi library: transliteration and Old Kannada letters"
+license = "MIT"
+
+[dependencies]
+kannadi = { git = "https://github.com/prasadus92/kannadi", rev = "aec8561361917a361f131d8d421179c9e74a7e2f" }

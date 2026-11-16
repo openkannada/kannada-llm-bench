@@ -1,15 +1,9 @@
 """The English and Kannada sides of WMT24++ (Apache 2.0), pinned to 1 revision."""
 
-import hashlib
 import json
 from dataclasses import dataclass
-from pathlib import Path
-from urllib.request import urlopen
 
-REVISION = "fd7405c06494bc66a57b25f55d217a72f96e60dc"
-URL = f"https://huggingface.co/datasets/google/wmt24pp/resolve/{REVISION}/en-kn_IN.jsonl"
-SHA256 = "b5ac7ca05c4f6fc30aa8a0c37490ae0786d954969d4152fbd19f1e41e4f5c757"
-DEFAULT_PATH = Path("data/raw/en-kn_IN.jsonl")
+from kbench.sources import WMT24PP
 
 
 @dataclass(frozen=True)
@@ -19,17 +13,6 @@ class Segment:
     domain: str
     english: str
     kannada: str
-
-
-def fetch(path: Path = DEFAULT_PATH) -> Path:
-    """Download the file once and check it against the pinned hash."""
-    if not path.exists():
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_bytes(urlopen(URL).read())
-    digest = hashlib.sha256(path.read_bytes()).hexdigest()
-    if digest != SHA256:
-        raise ValueError(f"{path} has sha256 {digest}, expected {SHA256}")
-    return path
 
 
 def parse(lines: list[str]) -> list[Segment]:
@@ -42,5 +25,5 @@ def parse(lines: list[str]) -> list[Segment]:
     ]
 
 
-def load(path: Path = DEFAULT_PATH) -> list[Segment]:
-    return parse(fetch(path).read_text(encoding="utf-8").splitlines())
+def load() -> list[Segment]:
+    return parse(WMT24PP.fetch().read_text(encoding="utf-8").splitlines())

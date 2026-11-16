@@ -1,0 +1,9 @@
+kind,best single letter,longest,shortest,most similar to the rest,least similar to the rest,best
+belebele,0.279,0.225,0.264,0.252,0.226,0.279
+case,0.250,0.217,0.225,0.225,0.275,0.275
+verb,0.250,0.258,0.242,0.325,0.208,0.325
+case-recognition,0.250,0.292,0.183,0.242,0.267,0.292
+sandhi,0.250,0.292,0.225,0.183,0.350,0.350
+digits-to-words,0.250,0.233,0.167,0.283,0.167,0.283
+modernize,0.250,0.250,0.250,0.250,0.250,0.250
+spot-old,0.250,0.250,0.263,0.138,0.375,0.375

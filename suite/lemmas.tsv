@@ -1,0 +1,84 @@
+# Common Kannada nouns and verbs with English glosses, written for this project. The grammar items
+# are built from their paradigms in kannada-spell. Columns: lemma, part of speech, gloss, and
+# "singular" for nouns whose plural the paradigms get wrong (kinship nouns take ಅಂದಿರು) or that
+# are rarely plural (mass nouns).
+ಮರ	n	tree
+ಮನೆ	n	house
+ಹುಡುಗ	n	boy
+ಹುಡುಗಿ	n	girl
+ಊರು	n	town
+ಕಾಡು	n	forest
+ಪುಸ್ತಕ	n	book
+ಶಾಲೆ	n	school
+ನದಿ	n	river
+ಬೆಟ್ಟ	n	hill
+ಹಣ್ಣು	n	fruit
+ಹೂವು	n	flower
+ನೀರು	n	water	singular
+ಹಾಲು	n	milk	singular
+ಕಣ್ಣು	n	eye
+ಕೈ	n	hand
+ದೇಶ	n	country
+ರಾಜ	n	king
+ರಾಣಿ	n	queen
+ಗುರು	n	teacher
+ತಾಯಿ	n	mother	singular
+ತಂದೆ	n	father	singular
+ಅಣ್ಣ	n	elder brother	singular
+ಅಕ್ಕ	n	elder sister	singular
+ಹಸು	n	cow
+ನಾಯಿ	n	dog
+ಬೆಕ್ಕು	n	cat
+ಕುದುರೆ	n	horse
+ಹಕ್ಕಿ	n	bird
+ಬಾಗಿಲು	n	door
+ಕೆರೆ	n	lake
+ಊಟ	n	meal
+ಕೆಲಸ	n	work
+ದಿನ	n	day
+ವರ್ಷ	n	year
+ಕಾರು	n	car
+ಬಸ್ಸು	n	bus
+ಆಸ್ಪತ್ರೆ	n	hospital
+ಮಾತು	n	word
+ಹೆಸರು	n	name
+ರಸ್ತೆ	n	road
+ಹಳ್ಳಿ	n	village
+ಗೆಳೆಯ	n	friend
+ಮಾಡು	v	do
+ಹೋಗು	v	go
+ಬರು	v	come
+ತಿನ್ನು	v	eat
+ಕುಡಿ	v	drink
+ನೋಡು	v	see
+ಕೇಳು	v	hear
+ಹೇಳು	v	tell
+ಓದು	v	read
+ಬರೆ	v	write
+ಕೊಡು	v	give
+ಆಡು	v	play
+ಹಾಡು	v	sing
+ನಡೆ	v	walk
+ಓಡು	v	run
+ನಿಲ್ಲು	v	stand
+ಮಲಗು	v	sleep
+ಕಲಿ	v	learn
+ಅಳು	v	cry
+ನಗು	v	laugh
+ಕೊಳ್ಳು	v	buy
+ಮಾರು	v	sell
+ತರು	v	bring
+ಇಡು	v	put
+ಹಿಡಿ	v	hold
+ಬಿಡು	v	leave
+ಕರೆ	v	call
+ಮುಚ್ಚು	v	close
+ತೆರೆ	v	open
+ತೊಳೆ	v	wash
+ಕಟ್ಟು	v	build
+ಹುಡುಕು	v	search
+ಬೀಳು	v	fall
+ಆಗು	v	become
+ಕಳುಹಿಸು	v	send
+ಎಳೆ	v	pull
+ಕೂಡು	v	join
