@@ -13,6 +13,7 @@ dependencies = [
 
 [project.optional-dependencies]
 chart = ["matplotlib==3.11.2"]
+run = ["mlx-lm==0.32.2; sys_platform == 'darwin'"]
 
 [project.scripts]
 kbench = "kbench.cli:main"

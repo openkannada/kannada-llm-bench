@@ -4,11 +4,13 @@ import argparse
 from collections import defaultdict
 from pathlib import Path
 
+from kbench.suite.items import Item
 from kbench.tokentax import chart, loaders, measure, wmt
 from kbench.tokentax.registry import TOKENIZERS, by_key
 
 TOKEN_TAX_DIR = Path("results/token-tax")
 SUITE_TASKS = ("reading", "grammar", "translit", "numbers", "orthography")
+SUITE_RESULTS = Path("results/suite")
 
 
 def token_tax(args: argparse.Namespace) -> None:
@@ -77,6 +79,39 @@ def suite_old_words(_: argparse.Namespace) -> None:
     print(f"{build.extract_old_words()} words")
 
 
+def load_items(tasks: list[str]) -> list[Item]:
+    from kbench.suite.build import ITEMS
+    from kbench.suite.items import read
+
+    return [item for task in tasks for item in read(ITEMS / f"{task}.jsonl")]
+
+
+def run_model(args: argparse.Namespace) -> None:
+    from kbench.harness import models, run, sample
+
+    spec = models.by_key(args.model)
+    items = sample.per_kind(load_items(args.tasks), args.per_kind)
+    answered = run.run(spec, items, SUITE_RESULTS / f"{spec.key}.jsonl", args.budget)
+    print(f"{spec.key}: answered {answered} items")
+
+
+def suite_report(_: argparse.Namespace) -> None:
+    from kbench.harness import models, report
+    from kbench.harness.replies import read_replies
+
+    items = load_items(list(SUITE_TASKS))
+    found = [(m.key, SUITE_RESULTS / f"{m.key}.jsonl") for m in models.MODELS]
+    all_rows = [
+        row for key, path in found if path.exists() for row in report.rows(key, read_replies(path), items)
+    ]
+    report.write(SUITE_RESULTS / "summary.csv", all_rows)
+    for r in all_rows:
+        print(
+            f"{r.model:16} {r.kind:18} {r.accuracy:6.1%} of {r.items:4}  "
+            f"chance {r.chance:.0%}  shortcut {r.shortcut:.0%}"
+        )
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(prog="kbench")
     commands = parser.add_subparsers(required=True)
@@ -102,6 +137,16 @@ def main() -> None:
     cuts.set_defaults(run=suite_shortcuts)
     old = commands.add_parser("suite-old-words", help="extract the Old Kannada words from Kannada Wikisource")
     old.set_defaults(run=suite_old_words)
+    run_cmd = commands.add_parser("run", help="run 1 local MLX model on a fixed sample of the suite")
+    run_cmd.add_argument("--model", required=True)
+    run_cmd.add_argument("--tasks", nargs="*", default=list(SUITE_TASKS), choices=SUITE_TASKS)
+    run_cmd.add_argument("--per-kind", type=int, default=60, help="items of each kind (default 60)")
+    run_cmd.add_argument(
+        "--budget", type=float, default=3000, help="stop after this many seconds; rerun to resume"
+    )
+    run_cmd.set_defaults(run=run_model)
+    rep = commands.add_parser("report", help="score every model's saved replies")
+    rep.set_defaults(run=suite_report)
     args = parser.parse_args()
     args.run(args)
 

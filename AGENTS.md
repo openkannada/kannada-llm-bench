@@ -38,6 +38,14 @@ src/kbench/
     reading.py, grammar.py, translit.py, numbers.py, orthography.py   1 builder per task
     build.py           builds and checks every item file
     shortcuts.py       scores of strategies that ignore Kannada
+  harness/
+    models.py          the local models, pinned by commit
+    prompts.py         the messages a model sees
+    score.py           reading a reply and judging it
+    sample.py          the fixed sample of items per kind
+    run.py             running 1 model with MLX, resumable
+    report.py          scores per model and kind
+scripts/run-baselines.sh   every model in turn under a time limit
 oracle/                Rust CLI over kannadi: transliteration and Old Kannada letters
 results/token-tax/     counts.csv, summary.csv, identical.txt and the chart
 suite/items/           the test items, 1 JSONL file per task
@@ -50,6 +58,7 @@ suite/old-kannada-words.tsv   Old Kannada words from Wikisource
 - Pin every external input: a revision for Hugging Face files, a hash for downloaded data.
 - Never download a gated model or dataset, and never accept a license on Hugging Face. Gated tokenizers go in `UNMEASURED` with the reason.
 - No paid API calls. Claude and Gemini counts wait on an approved key.
+- Run 1 model at a time, under a hard time limit, and only models that are ungated and openly licensed.
 - Commit results with the code that produced them; a test checks that `summary.csv` matches `counts.csv`.
 - Every behavior change gets a test. For each new rule, remove it, confirm a test fails, then restore it, under a 5 second timeout.
 - Every item says how its key is checked: `human`, `computed` or `needs-reader`. Never mark generated Kannada grammar `computed`.
