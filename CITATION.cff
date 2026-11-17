@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use the Kannada token-tax results, please cite them as below."
+title: "Kannada token tax"
+abstract: "Kannada tokens per English token for 23 public language model tokenizers, counted on the 960 en-kn segments of WMT24++, with per-segment counts and document-level bootstrap intervals."
+type: dataset
+authors:
+  - family-names: Subrahmanya
+    given-names: Prasad
+repository-code: "https://github.com/prasadus92/kannada-llm-bench"
+date-released: 2026-11-16
+license: CC-BY-4.0
+keywords:
+  - Kannada
+  - tokenizers
+  - token tax
+  - language models

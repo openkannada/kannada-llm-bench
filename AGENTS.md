@@ -47,7 +47,7 @@ src/kbench/
     report.py          scores per model and kind
 scripts/run-baselines.sh   every model in turn under a time limit
 oracle/                Rust CLI over kannadi: transliteration and Old Kannada letters
-results/token-tax/     counts.csv, summary.csv, identical.txt and the chart
+results/token-tax/     counts.csv, summary.csv, identical.txt, the chart and its data card
 suite/items/           the test items, 1 JSONL file per task
 suite/lemmas.tsv       the nouns and verbs the grammar items use
 suite/old-kannada-words.tsv   Old Kannada words from Wikisource
@@ -68,11 +68,7 @@ suite/old-kannada-words.tsv   Old Kannada words from Wikisource
 
 ## Commits
 
-Signed, as Prasad, with no AI attribution:
-
-```sh
-git -c user.name="Prasad Subrahmanya" -c user.email=prasadus92@gmail.com commit -S
-```
+Sign your commits (`git commit -S`). Add no AI attribution lines such as Co-Authored-By trailers.
 
 ## Writing
 

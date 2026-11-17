@@ -1,12 +1,15 @@
 # kannada-llm-bench
 
-How many tokens Kannada costs in language model tokenizers, and a Kannada test suite with answer keys. Everything reruns from pinned public sources, except the grammar items, which need the private kannada-spell repository.
+How many tokens Kannada costs in language model tokenizers, and a Kannada test suite with answer keys. Everything reruns from pinned public sources. The grammar items also need a checkout of [kannada-spell](https://github.com/prasadus92/kannada-spell).
 
 ## Token tax
 
 The same text costs between 1.1 and 8.3 times as many tokens in Kannada as in English, depending on the tokenizer. More tokens means a higher bill, slower answers and less room in the context window for the same message.
 
-![Kannada tokens per English token, by tokenizer](results/token-tax/token-tax-light.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="results/token-tax/token-tax-dark.png">
+  <img alt="Kannada tokens per English token, by tokenizer, from 8.27 for cl100k down to 1.14 for Sarvam-1" src="results/token-tax/token-tax-light.png">
+</picture>
 
 The test text is the 960 English segments of [WMT24++](https://huggingface.co/datasets/google/wmt24pp) with their professional Kannada translations (Apache 2.0). A segment is a sentence or a short paragraph from news, social media posts, speech transcripts or literature, drawn from 170 documents. Each tokenizer counts both sides without special tokens.
 
@@ -38,7 +41,7 @@ What the numbers say:
 - Qwen cut its Kannada cost by more than half between Qwen 3 and Qwen 3.5. Mistral Large 4 is the only Mistral tokenizer measured below 2.
 - Sarvam's own tokenizers come closest to parity. Sarvam-1's low ratio is partly English cost: it spends 48,257 tokens on the English side, against 40,372 to 42,398 for the others. On Kannada alone, Sarvam-1 (2.3 tokens per word) and Sarvam 30B and 105B (2.4) are close.
 - Kannada joins suffixes onto words, so it has fewer words than the English (23,778 against 32,262). Tokens per word is therefore not comparable across the 2 languages; use it only to compare tokenizers on Kannada.
-- News costs the most in every tokenizer. Speech costs the least in all but Kimi, where literature does. [summary.csv](results/token-tax/summary.csv) has the ratio for each domain, and [counts.csv](results/token-tax/counts.csv) has the counts for every segment.
+- News costs the most in every tokenizer. Speech costs the least in all but Kimi, where literature does. [summary.csv](results/token-tax/summary.csv) has the ratio for each domain, and [counts.csv](results/token-tax/counts.csv) has the counts for every segment. The [data card](results/token-tax/README.md) describes every column, the method and the limits.
 
 Not measured:
 
@@ -181,4 +184,4 @@ uv run ruff check . && uv run ruff format --check .
 
 ## License
 
-Code: MIT. Token-tax results: CC BY 4.0. The test items carry their sources' licenses, CC BY-SA 4.0 for the suite as a whole. See [DATA-LICENSE.md](DATA-LICENSE.md).
+Code: MIT. Token-tax results: CC BY 4.0; cite them with [CITATION.cff](CITATION.cff). The test items carry their sources' licenses, CC BY-SA 4.0 for the suite as a whole. See [DATA-LICENSE.md](DATA-LICENSE.md).

@@ -1,3 +1,4 @@
+import csv
 import json
 import re
 from collections import defaultdict
@@ -134,3 +135,13 @@ def test_cl100k_counts_kannada_by_bytes():
     count = load(by_key("cl100k"))
     assert count("hello") == 1
     assert count("ಕನ್ನಡ") > 5
+
+
+def test_data_card_describes_every_column_of_the_results():
+    card = (RESULTS / "README.md").read_text(encoding="utf-8")
+    for name in ("counts.csv", "summary.csv"):
+        with (RESULTS / name).open(encoding="utf-8") as f:
+            header = next(csv.reader(f))
+        section = card.split(f"### {name}", 1)[1].split("###", 1)[0]
+        documented = [line.split("`")[1] for line in section.splitlines() if line.startswith("| `")]
+        assert sorted(documented) == sorted(header), name
