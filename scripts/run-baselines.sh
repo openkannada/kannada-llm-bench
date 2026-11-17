@@ -4,7 +4,7 @@
 # machine with other heavy jobs. Rerun to resume: answered items are skipped.
 set -eu
 LIMIT=${LIMIT_SECONDS:-3600}
-for model in ${MODELS:-qwen3.5-4b gemma-4-e2b phi-4-mini granite-4.1-3b}; do
+for model in ${MODELS:-qwen3.5-4b gemma-4-e2b phi-4-mini granite-4.1-3b gemma-4-12b sarvam-m}; do
   ${HEAVY_SERIAL:+$HEAVY_SERIAL "$PWD"} perl -e 'alarm shift; exec @ARGV' "$LIMIT" \
     uv run kbench run --model "$model" --budget $((LIMIT - 300)) "$@" || echo "$model stopped early"
 done
