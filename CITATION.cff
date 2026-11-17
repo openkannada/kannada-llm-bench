@@ -6,7 +6,7 @@ type: dataset
 authors:
   - family-names: Subrahmanya
     given-names: Prasad
-repository-code: "https://github.com/prasadus92/kannada-llm-bench"
+repository-code: "https://github.com/openkannada/kannada-llm-bench"
 date-released: 2026-11-16
 license: CC-BY-4.0
 keywords:

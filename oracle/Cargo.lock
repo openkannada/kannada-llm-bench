@@ -5,7 +5,7 @@ version = 4
 [[package]]
 name = "kannadi"
 version = "0.1.0"
-source = "git+https://github.com/prasadus92/kannadi?rev=aec8561361917a361f131d8d421179c9e74a7e2f#aec8561361917a361f131d8d421179c9e74a7e2f"
+source = "git+https://github.com/openkannada/kannadi?rev=aec8561361917a361f131d8d421179c9e74a7e2f#aec8561361917a361f131d8d421179c9e74a7e2f"
 dependencies = [
  "unicode-normalization",
 ]

@@ -1,6 +1,6 @@
 # kannada-llm-bench
 
-How many tokens Kannada costs in language model tokenizers, and a Kannada test suite with answer keys. Everything reruns from pinned public sources. The grammar items also need a checkout of [kannada-spell](https://github.com/prasadus92/kannada-spell).
+How many tokens Kannada costs in language model tokenizers, and a Kannada test suite with answer keys. Everything reruns from pinned public sources. The grammar items also need a checkout of [kannada-spell](https://github.com/openkannada/kannada-spell).
 
 ## Token tax
 
@@ -76,7 +76,7 @@ Every source is pinned: the WMT24++ file by revision and SHA-256, each Hugging F
 |---|---|---|---|---|
 | Reading | Belebele questions on a passage, 4 options | 897 | human | [Belebele](https://huggingface.co/datasets/facebook/belebele) kan_Knda, CC BY-SA 4.0 |
 | Grammar | case form, verb form, case recognition, joining a stem and a case ending; 4 options each | 480 | needs-reader | Paradigms from kannada-spell `a01fe20` (`kspell paradigm`) for 78 common nouns and verbs |
-| Transliteration | Kannada to ISO 15919, and back; exact answer | 200 | computed | Words from WMT24++ (Apache 2.0); answers from [kannadi](https://github.com/prasadus92/kannadi) |
+| Transliteration | Kannada to ISO 15919, and back; exact answer | 200 | computed | Words from WMT24++ (Apache 2.0); answers from [kannadi](https://github.com/openkannada/kannadi) |
 | Numbers | Kannada digits to Western and back, arithmetic in Kannada digits; exact answer | 180 | computed | Random numbers |
 | Numbers | Kannada number words to digits (exact), digits to words (4 options) | 120 | needs-reader | A number-word generator in this suite |
 | Orthography | writing an Old Kannada word (ೞ, ಱ) with modern letters; spotting the word with an obsolete letter; 4 options | 160 | computed | 421 words from Kannada Wikisource (CC BY-SA 4.0) and modern words from WMT24++; answers from kannadi |
