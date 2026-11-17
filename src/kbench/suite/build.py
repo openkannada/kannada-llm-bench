@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """Build every item file from its sources and answer-key programs."""
 
 import subprocess

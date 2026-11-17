@@ -31,3 +31,21 @@ jobs:
       - run: cargo build --release --manifest-path oracle/Cargo.toml --locked
       - run: uv run kbench suite-build --oracle oracle/target/release/oracle --tasks reading translit numbers orthography
       - run: git diff --exit-code suite/items
+
+  reuse:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          version: "0.12.17"
+      - run: uvx reuse@6.3.0 lint
+
+  dco:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
+      - run: .github/scripts/dco.sh "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}"

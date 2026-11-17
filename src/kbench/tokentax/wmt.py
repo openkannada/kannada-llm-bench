@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """The English and Kannada sides of WMT24++ (Apache 2.0), pinned to 1 revision."""
 
 import json

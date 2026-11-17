@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """The 2 programs that compute answer keys: kannada-spell's kspell and this repository's oracle."""
 
 import subprocess

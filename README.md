@@ -206,6 +206,12 @@ uv run ruff check . && uv run ruff format --check .
 
 ## License
 
-Code: MIT. Token-tax results: CC BY 4.0; cite them with [CITATION.cff](CITATION.cff). The test items carry their sources' licenses, CC BY-SA 4.0 for the suite as a whole. See [DATA-LICENSE.md](DATA-LICENSE.md).
+Code: [MIT](LICENSE-MIT) or [Apache-2.0](LICENSE-APACHE), at your option. Copyright 2026 The Open Kannada Authors.
+
+- Results, in `results/`: CC BY 4.0. Cite the token-tax results with [CITATION.cff](CITATION.cff).
+- Test items written here (grammar, numbers, transliteration) and `suite/lemmas.tsv`: CC BY 4.0.
+- Items copied from share-alike sources (reading, from Belebele and FLORES-200; orthography and `suite/old-kannada-words.tsv`, from Kannada Wikisource): CC BY-SA 4.0. Each file keeps its own license. Following CC BY-SA 4.0 for the whole folder also satisfies them all, if that is simpler.
+
+[DATA-LICENSE.md](DATA-LICENSE.md) has the details, [NOTICE.md](NOTICE.md) the credits, and [LICENSES/](LICENSES) the full license texts; [REUSE.toml](REUSE.toml) covers every file. Contributions are welcome under the [DCO](CONTRIBUTING.md). The name Open Kannada is covered by [TRADEMARKS.md](TRADEMARKS.md).
 
 Part of [Open Kannada](https://github.com/openkannada), free and open-source tools that make Kannada work properly on computers.

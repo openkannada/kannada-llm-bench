@@ -12,6 +12,7 @@ Measurements of how language models handle Kannada: the token cost of Kannada te
 uv sync --extra chart
 uv run pytest                      # offline tests, under 5 seconds
 uv run ruff check . && uv run ruff format --check .
+uvx reuse lint                     # every file has a license
 uv run kbench token-tax            # recount every tokenizer; downloads pinned files
 uv run kbench token-tax-chart      # redraw the chart from results/token-tax
 cargo build --release --manifest-path oracle/Cargo.toml
@@ -64,11 +65,12 @@ suite/old-kannada-words.tsv   Old Kannada words from Wikisource
 - Every item says how its key is checked: `human`, `computed` or `needs-reader`. Never mark generated Kannada grammar `computed`.
 - Items are generated, never edited by hand. Change the builder and rebuild. CI fails if a rebuild changes a reading, transliteration, numbers or orthography item; grammar needs kannada-spell, so rebuild it locally after any change to the suite code and commit the result.
 - After changing items, rerun `kbench suite-shortcuts` and update the shortcut table in the README.
+- Each data file has 1 license, set in `REUSE.toml` and `DATA-LICENSE.md`. A file copied from a share-alike source keeps that license; data written here is CC BY 4.0.
 - Comments only for what the code cannot say.
 
 ## Commits
 
-Sign your commits (`git commit -S`). Add no AI attribution lines such as Co-Authored-By trailers.
+Sign your commits and sign off on them for the DCO (`git commit -S -s`); see CONTRIBUTING.md. Add no AI attribution lines such as Co-Authored-By trailers.
 
 ## Writing
 

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """Reading comprehension: Belebele's Kannada questions on FLORES passages (CC BY-SA 4.0)."""
 
 import json

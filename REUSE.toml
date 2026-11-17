@@ -1,0 +1,28 @@
+version = 1
+SPDX-PackageName = "kannada-llm-bench"
+SPDX-PackageDownloadLocation = "https://github.com/openkannada/kannada-llm-bench"
+
+[[annotations]]
+path = ["pyproject.toml", "uv.lock", "oracle/Cargo.toml", "oracle/Cargo.lock", ".gitignore", ".github/**"]
+SPDX-FileCopyrightText = "2026 The Open Kannada Authors"
+SPDX-License-Identifier = "MIT OR Apache-2.0"
+
+[[annotations]]
+path = ["**/*.md", "CITATION.cff", "results/**", "suite/lemmas.tsv", "suite/items/grammar.jsonl", "suite/items/numbers.jsonl"]
+SPDX-FileCopyrightText = "2026 The Open Kannada Authors"
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = "suite/items/translit.jsonl"
+SPDX-FileCopyrightText = ["Google (WMT24++ words)", "2026 The Open Kannada Authors"]
+SPDX-License-Identifier = "CC-BY-4.0"
+
+[[annotations]]
+path = "suite/items/reading.jsonl"
+SPDX-FileCopyrightText = ["Meta (Belebele, by Bandarkar et al., and FLORES-200)", "2026 The Open Kannada Authors"]
+SPDX-License-Identifier = "CC-BY-SA-4.0"
+
+[[annotations]]
+path = ["suite/items/orthography.jsonl", "suite/old-kannada-words.tsv"]
+SPDX-FileCopyrightText = ["Kannada Wikisource contributors", "2026 The Open Kannada Authors"]
+SPDX-License-Identifier = "CC-BY-SA-4.0"

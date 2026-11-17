@@ -1,3 +1,6 @@
+// SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+// SPDX-License-Identifier: MIT OR Apache-2.0
+
 //! Reads 1 text per line on stdin and writes 1 answer per line: the answer keys for the
 //! transliteration and orthography items, computed with kannadi.
 //!
@@ -18,7 +21,9 @@ fn answer_fn(args: &[String]) -> Result<Box<dyn Fn(&str) -> String>, String> {
             Ok(Box::new(move |text| transliterate(text, from, to)))
         }
         [cmd] if cmd == "modernize" => Ok(Box::new(modernize)),
-        [cmd] if cmd == "has-old" => Ok(Box::new(|text| u8::from(has_old_kannada(text)).to_string())),
+        [cmd] if cmd == "has-old" => {
+            Ok(Box::new(|text| u8::from(has_old_kannada(text)).to_string()))
+        }
         _ => Err("usage: oracle translit <from> <to> | modernize | has-old".into()),
     }
 }
@@ -34,7 +39,9 @@ fn main() -> ExitCode {
     };
     let mut out = BufWriter::new(io::stdout().lock());
     for line in io::stdin().lock().lines() {
-        let Ok(line) = line else { return ExitCode::FAILURE };
+        let Ok(line) = line else {
+            return ExitCode::FAILURE;
+        };
         if writeln!(out, "{}", answer(&line)).is_err() {
             return ExitCode::FAILURE;
         }

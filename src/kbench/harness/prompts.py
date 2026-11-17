@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """The chat messages a model sees for 1 item."""
 
 from kbench.suite.items import LETTERS, Item

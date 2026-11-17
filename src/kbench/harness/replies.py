@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """The saved replies of 1 model: 1 JSON object per line with the item id, reply and time."""
 
 import json

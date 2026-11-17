@@ -1,4 +1,6 @@
 #!/bin/sh
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
 # Run each local model on the suite sample, 1 at a time, each under a hard time limit. Set
 # HEAVY_SERIAL to a queueing wrapper (it gets the directory, then the command) to share the
 # machine with other heavy jobs. Rerun to resume: answered items are skipped.

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """Kannada script operations the item builders need: joining a stem and a vowel-initial ending."""
 
 VOWEL_SIGNS = {

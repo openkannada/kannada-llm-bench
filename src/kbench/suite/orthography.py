@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """Old and new orthography: the letters ೞ and ಱ, which modern Kannada writes ಳ and ರ."""
 
 import random

@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """How well strategies that ignore Kannada score on the multiple-choice items: a floor that a
 model's score should be read against, alongside chance."""
 

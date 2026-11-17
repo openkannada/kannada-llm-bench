@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """Grammar items built from kannada-spell's paradigms: noun cases, verb forms, case
 recognition, and joining a stem to a case ending."""
 

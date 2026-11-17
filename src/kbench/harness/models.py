@@ -1,3 +1,6 @@
+# SPDX-FileCopyrightText: 2026 The Open Kannada Authors
+# SPDX-License-Identifier: MIT OR Apache-2.0
+
 """The local models run on the suite: small, open-licensed, ungated MLX builds pinned by commit."""
 
 from dataclasses import dataclass
