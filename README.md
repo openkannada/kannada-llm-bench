@@ -179,6 +179,16 @@ What the numbers say:
 
 Replies for every item are in `results/suite/<model>.jsonl`. `kbench report` re-scores them into [summary.csv](results/suite/summary.csv), and a test checks that the committed summary matches the replies.
 
+## Install
+
+You need Python 3.13 or later and [uv](https://docs.astral.sh/uv/). Rebuilding the suite's answer keys also needs Rust, and the grammar items need a checkout of kannada-spell. Running the baselines needs an Apple Silicon Mac, because the models run through MLX.
+
+```sh
+git clone https://github.com/openkannada/kannada-llm-bench
+cd kannada-llm-bench
+uv sync --extra chart --extra run   # chart draws the token-tax chart; run loads local models
+```
+
 ## Development
 
 ```sh
@@ -187,6 +197,15 @@ uv run pytest -m network # the test that downloads a tokenizer
 uv run ruff check . && uv run ruff format --check .
 ```
 
+## Limits
+
+- **The token tax comes from 1 text source.** Code, chat, government forms and Kannada written in Latin letters may cost differently, and tokens are not price. The [data card](results/token-tax/README.md) lists the other limits.
+- **Some tokenizers are not measured:** gated ones such as Llama and Gemma 3, and Claude and Gemini, whose tokenizers are not public.
+- **600 of the 2,037 test items wait on a Kannada reader.** Treat scores on the grammar and number-word kinds as provisional.
+- **The baselines are small.** 60 items of each kind give each score a 95% interval of about 12 points either way, and only local open models with 4-bit weights were run.
+
 ## License
 
 Code: MIT. Token-tax results: CC BY 4.0; cite them with [CITATION.cff](CITATION.cff). The test items carry their sources' licenses, CC BY-SA 4.0 for the suite as a whole. See [DATA-LICENSE.md](DATA-LICENSE.md).
+
+Part of [Open Kannada](https://github.com/openkannada), free and open-source tools that make Kannada work properly on computers.
