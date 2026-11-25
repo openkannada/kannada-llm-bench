@@ -109,13 +109,13 @@ def test_committed_summary_rescores_from_the_committed_replies(tmp_path: Path):
     assert (tmp_path / "s.csv").read_bytes() == (root / "results" / "suite" / "summary.csv").read_bytes()
 
 
-def test_readme_results_match_the_committed_summary():
+def test_baselines_doc_matches_the_committed_summary():
     import csv
 
     root = Path(__file__).parent.parent
     with (root / "results" / "suite" / "summary.csv").open(encoding="utf-8") as f:
         summary = list(csv.DictReader(f))
-    readme = (root / "README.md").read_text(encoding="utf-8").splitlines()
+    readme = (root / "docs" / "baselines.md").read_text(encoding="utf-8").splitlines()
     from kbench.harness.models import MODELS
 
     models = [m.key for m in MODELS]
