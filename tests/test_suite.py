@@ -233,7 +233,7 @@ def test_shortcuts_score_each_strategy():
     assert table["longest"] == 0.5 and table["best single letter"] == 0.5
 
 
-def test_committed_shortcuts_match_the_items_and_the_readme(tmp_path: Path):
+def test_committed_shortcuts_match_the_items_and_the_suite_doc(tmp_path: Path):
     from kbench.suite import shortcuts
 
     items = [i for task in EXPECTED_CHECKS for i in read(ITEMS / f"{task}.jsonl")]
@@ -242,7 +242,7 @@ def test_committed_shortcuts_match_the_items_and_the_readme(tmp_path: Path):
     assert (tmp_path / "s.csv").read_bytes() == committed.read_bytes()
     rows = {
         line.split(" | ")[0].lstrip("| "): line
-        for line in (ITEMS.parent.parent / "README.md").read_text(encoding="utf-8").splitlines()
+        for line in (ITEMS.parent.parent / "docs" / "suite.md").read_text(encoding="utf-8").splitlines()
         if line.startswith("| ")
     }
     labels = {
